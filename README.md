@@ -2,6 +2,14 @@
 
 A simple library that manages hooks in Python applications.
 
+[![PyPI version](https://badge.fury.io/py/coordinator.svg)](https://badge.fury.io/py/coordinator)
+
+## Install
+
+```sh
+pip install coordinator
+```
+
 ## Example
 
 Simplest example
