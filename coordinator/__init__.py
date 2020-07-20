@@ -13,20 +13,20 @@ class Coordinator:
         """
 
         for f in self._hooks_db[hook]:
-            self.run_task(f, context)
+            self._run_task(f, context)
 
-    def register_hook(self, hook="default"):
+    def register_task(self, hook="default"):
         """
         A decorator to register a task to a hook.
 
         :param hook: The hook name to register with, defaults to "default"
         :type hook: str, optional
         """
-        def _register_hook(f):
+        def _register_task(f):
             self._hooks_db[hook].append(f)
             return f
 
-        return _register_hook
+        return _register_task
 
     def __init__(self, huey=None):
         """
@@ -48,4 +48,4 @@ class Coordinator:
         def _run_task(f, context):
             return f(context)
 
-        self.run_task = _run_task
+        self._run_task = _run_task
